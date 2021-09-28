@@ -1,13 +1,74 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 	<head> 
-		<title>LASTNAME Chapter14HandsOnExercise</title> 
+		<title>Keller Chapter14HandsOnExercise</title> 
 		<meta charset="utf-8"> 
+          <!-- jQuery 1.8 or later, 33 KB -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- Fotorama from CDNJS, 19 KB -->
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+        
 		<style>
-		
+            input { display: block;
+                margin-bottom: 1em;
+            }
+            label { float: left;
+                width: 5em;
+                padding-right: 1em;
+                text-align: right;
+    }
+            #submit { margin-left: 7em; }
+            #details {display: none;}
 		</style>
 	</head> 
 <body> 
+ 
+    <form method="post"
+          action="http://webdevbasics.net/scripts/demo.php"
+          onsubmit="return validateForm();">
+    <label for="Name">Name:</label>
+    <input type="text" name="Name" id="Name">
+    <label for="userAge">Age:</label>
+    <input type="text" name="userAge" id="userAge">
+    <label for="City">City:</label>
+    <input type="text" name="City" id="City">
+        
+    <input type="submit" value="Send Information" id="submit">
+    </form>
+    
 
+    
+    <h1>Slideshow </h1>
+<div class="fotorama" data-autoplay="true">
+  <img src="photo1.jpg" data-caption="Golden Gate Bridge" alt="Golden Gate Bridge">
+  <img src="photo2.jpg" data-caption="Rocky Coastline" alt="Rocky Coastline" >
+  <img src="photo3.jpg" data-caption="Clouds on the coast" alt="Clouds on the coast" >
+  <img src="photo4.jpg" data-caption="Waterfall" alt="Waterfall" >
+  <img src="photo5.jpg" data-caption="Waves crashing on coast" alt="Waves crashing on coast" >
+  <img src="photo6.jpg" data-caption="Sunset on the Coast" alt="Sunset on the Coast" >
+</div>
+    
+    
+    
+    
+    <script>
+function validateForm() {
+  if(document.forms[0].City.value == "") {
+    alert("City field cannot be empty.");
+    return false;
+  }
+  if(document.forms[0].userAge.value < 18) {
+    alert("Age is less than 18.  You do not have access");
+    return false;
+  }
+  alert("All fields are valid");
+  return true;
+  }
+</script>
+    
+    
+    
 </body> 
 </html> 
